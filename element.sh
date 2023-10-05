@@ -15,7 +15,7 @@ then
 
   if [[ -z $ELEMENT_RESULT ]]
   then
-    echo I could not find that element in the database.
+    echo "I could not find that element in the database."
   else
     echo "$ELEMENT_RESULT" | while IFS="|" read TYPE_ID ATOMIC_NUMBER SYMBOL NAME ATOMIC_MASS MELTING_POINT_CELSIUS BOILING_POINT_CELSIUS TYPE
     do
@@ -23,5 +23,5 @@ then
     done
   fi
 else
-  echo Please provide an element as an argument.
+  echo "Please provide an element as an argument."
 fi
