@@ -17,7 +17,10 @@ then
   then
     echo I could not find that element in the database.
   else
-    echo "$ELEMENT_RESULT"
+    echo "$ELEMENT_RESULT" | while IFS="|" read TYPE_ID ATOMIC_NUMBER SYMBOL NAME ATOMIC_MASS MELTING_POINT_CELSIUS BOILING_POINT_CELSIUS TYPE
+    do
+      echo "The element with atomic number $ATOMIC_NUMBER is $NAME ($SYMBOL). It's a $TYPE, with a mass of $ATOMIC_MASS amu. $NAME has a melting point of $MELTING_POINT_CELSIUS celsius and a boiling point of $BOILING_POINT_CELSIUS celsius."
+    done
   fi
 else
   echo Please provide an element as an argument.
